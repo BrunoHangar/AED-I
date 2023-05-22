@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-
 #define MAX 100000
 
 // Função para converter a string para letras minúsculas
