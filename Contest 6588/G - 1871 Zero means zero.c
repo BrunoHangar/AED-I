@@ -8,12 +8,15 @@ int main() {
     char junta[30];
     int i, j;
     
+    // Executa até ler 0 na entrada de dados
     while (N != 0 && M != 0) {
         scanf("%d", &N);
         scanf("%d", &M);
         soma = N + M;
+        // 'sprintf' faz a conversão de um valor de inteiros para uma sequência de digitos na variável 'junta'
         sprintf(junta, "%d", soma);
-
+        
+        // Retira todos os elementos '0' da string
         for (i = 0; i < MAX - 1; i++) {
             if (junta[i] == '0') {
                 for (j = i; j < MAX - 1; j++) {
@@ -23,6 +26,7 @@ int main() {
                 i--; // Decrementa o índice para verificar novamente o elemento atual
             }
         }
+        // Imprime e saída de dados
         if(soma != 0)
             printf("%s\n", junta);
     }
