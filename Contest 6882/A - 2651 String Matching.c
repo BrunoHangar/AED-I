@@ -22,14 +22,13 @@ int main() {
     // Converte a string para letras minúsculas
     Minusculo(string);
 
-    // Verificar a presença da palavra "zelda" na string
+    // Verifica a presença da palavra "zelda" na string
     resultado = strstr(string, "zelda");
 
-    if (resultado != NULL) {
+    if (resultado != NULL)
         printf("Link Bolado\n");
-    } else {
+    else 
         printf("Link Tranquilo\n");
-    }
 
     return 0;
 }
