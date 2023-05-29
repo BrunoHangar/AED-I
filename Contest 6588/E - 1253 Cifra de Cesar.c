@@ -1,41 +1,36 @@
 #include <stdio.h>
 #include <string.h>
-#define MAX 50
 
-// Programa que usa a lógica da Cifra de César para decodificar mensagens, com o 
+#define MAX 51
 
-void DecoderCifraCesar(char str1[], int val) {
+// Decodifica a mensagem usando a lógica da Cifra de César, considerando o deslocamento dos caracteres
+void DecodificaCifraCesar(char str1[], int desloc) {
     int i;
-    char ABC[26] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    char strFinal[MAX];
     int tam = strlen(str1);
     
-    
-    int k = val;
-    while (k <= 26) {
-        for (i = 0; i < tam; i++) {
-            strFinal[i] = ABC[k];
-            k += val;
-        }
+    for (i = 0; i < tam; i++) {
+        // Deslocamento reverso para a esquerda
+        int ascii = str1[i] - 'A';
+        int novoAscii = (ascii - desloc + 26) % 26;
+        str1[i] = novoAscii + 'A';
     }
-    printf("%s\n", strFinal);
 }
-    
-    
+
 int main() {
-    int qtd, val, i;
-    char str1[MAX], str2[MAX];
-    
+    int qtd;
     scanf("%d", &qtd);
-    
-    i = 0;
-    while (i < qtd) {
+    getchar(); // Para consumir o caractere de nova linha após a leitura de N
+
+    while (qtd--) {
+        char str1[MAX];
+        int desloc;
         scanf("%s", str1);
-        scanf("%d", &val);
-        DecoderCifraCesar(str1, val);
-        i++;
+        scanf("%d", &desloc);
+        getchar(); // Para consumir o caractere de nova linha após a leitura do deslocamento
+
+        DecodificaCifraCesar(str1, desloc);
+        printf("%s\n", str1);
     }
-    
-    
+
     return 0;
 }
